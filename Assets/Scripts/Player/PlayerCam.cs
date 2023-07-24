@@ -26,8 +26,8 @@ public class PlayerCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _horizontalRotationTrans.rotation = Quaternion.Euler(_horizontalRotationTrans.eulerAngles.x, _horizontalRotationTrans.eulerAngles.y + Time.deltaTime * _input._look.x, _horizontalRotationTrans.eulerAngles.z);
-        float newVertRot = _verticalRotationTrans.eulerAngles.x - Time.deltaTime * _input._look.y;
+        _horizontalRotationTrans.rotation = Quaternion.Euler(_horizontalRotationTrans.eulerAngles.x, _horizontalRotationTrans.eulerAngles.y + _input._look.x * _data.sensitivity, _horizontalRotationTrans.eulerAngles.z);
+        float newVertRot = _verticalRotationTrans.eulerAngles.x  - _input._look.y * _data.sensitivity;
         if (180 > newVertRot  && newVertRot > _data.maxAngle)
         {
            newVertRot = _data.maxAngle;

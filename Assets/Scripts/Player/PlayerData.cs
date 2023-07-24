@@ -23,7 +23,7 @@ public class PlayerData : ScriptableObject
 
     [Header("Look")]
     public float maxAngle = 60;
-
+    public float sensitivity = 0.01f;
     [Header("Physics Gun")]
     public float minimumRange = 0;
     public float maximumRange = 12;

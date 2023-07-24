@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 0
   iFrameTime: 0.5
   playerHeight: 2
-  moveSpeed: 5
+  moveSpeed: 6
   maxForce: 1
   groundedDrag: 1
   airDrag: 0

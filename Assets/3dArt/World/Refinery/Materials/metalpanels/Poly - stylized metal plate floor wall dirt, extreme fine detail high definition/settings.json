@@ -1,0 +1,23 @@
+{
+  "prompt_text": "stylized metal plate floor wall dirt, extreme fine detail high definition",
+  "patch": {
+    "ext": "png",
+    "dtype": "uint8",
+    "width": 512,
+    "height": 512,
+    "url": "https://static-dev.withpoly.com/v3/textures/patches/7a2253fc-3a78-45bc-930b-14425cede811.png",
+    "patch_id": "fcV5TGARWf"
+  },
+  "seamless_prompt_text": "",
+  "seamless_patch_scale": 1.0,
+  "upscale_prompt_text": "stylized metal plate floor wall dirt, extreme fine detail high definition",
+  "upscale_resolution": 2048,
+  "is_seamless": true,
+  "pbr_mode": "shiny",
+  "pbr_generate_color": true,
+  "pbr_generate_normal": true,
+  "pbr_generate_height": true,
+  "pbr_generate_ao": true,
+  "pbr_generate_roughness": true,
+  "pbr_generate_metallic": true
+}

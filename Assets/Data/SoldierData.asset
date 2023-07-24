@@ -35,7 +35,7 @@ MonoBehaviour:
   coverLineOfSightCheckLayer:
     serializedVersion: 2
     m_Bits: 511
-  seekCoverSpeed: 7
+  seekCoverSpeed: 3.5
   burstAmount: 5
   exitCoverChance: 37.9
   initialMisses: 3
