@@ -31,7 +31,7 @@ public class SoldierStateManager : MonoBehaviour
     void Start()
     {
         _bulletsShot = 0;
-        _currentState = AggroState;
+        _currentState = PatrolState;
         _currentState.EnterState(this);
     }
 

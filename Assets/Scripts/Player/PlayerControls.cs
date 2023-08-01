@@ -11,6 +11,9 @@ public class PlayerControls : MonoBehaviour
     public float _jump = 0;
     public bool _jumpHeld = false;
     public bool _fireHeld = false;
+    public bool _weaponWheelHeld = false;
+    public bool _altFireHeld = false;
+
     public float _reelValue = 0;
 
     [Header("Modifiers")]
@@ -20,10 +23,12 @@ public class PlayerControls : MonoBehaviour
     [Header("Misc")]
     public PlayerData _data;
     PlayerInput _inputComp;
+    RadialMenu _radial;
     // Start is called before the first frame update
     void Start()
     {
         _inputComp = GetComponent<PlayerInput>();
+        _radial = GameObject.Find("RadialMenu").GetComponent<RadialMenu>();
     }
 
 
@@ -78,7 +83,30 @@ public class PlayerControls : MonoBehaviour
             _fireHeld = false;
         }
     }
-
+    public void WeaponWheel(InputAction.CallbackContext context)
+    {
+        if (context.ReadValue<float>() == 1)
+        {
+            _radial.Open();
+            _weaponWheelHeld = true;
+        }
+        else
+        {
+            _radial.Close();
+            _weaponWheelHeld = false;
+        }
+    }
+    public void AltFire(InputAction.CallbackContext context)
+    {
+        if (context.ReadValue<float>() == 1)
+        {
+            _altFireHeld = true;
+        }
+        else
+        {
+            _altFireHeld = false;
+        }
+    }
     public void Reel(InputAction.CallbackContext context)
     {
         _reelValue = context.ReadValue<float>();

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: DragonMouthMask
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Dragon
+    m_Weight: 0
+  - m_Path: Dragon/Base
+    m_Weight: 0
+  - m_Path: Dragon/Base/Spine.001
+    m_Weight: 0
+  - m_Path: Dragon/Base/Spine.001/Spine.002
+    m_Weight: 0
+  - m_Path: Dragon/Base/Spine.001/Spine.002/Spine.003
+    m_Weight: 0
+  - m_Path: Dragon/Base/Spine.001/Spine.002/Spine.003/Spine.004
+    m_Weight: 0
+  - m_Path: Dragon/Base/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005
+    m_Weight: 0
+  - m_Path: Dragon/Base/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Spine.006
+    m_Weight: 0
+  - m_Path: Dragon/Base/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Spine.006/Spine.007
+    m_Weight: 0
+  - m_Path: Dragon/Base/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Spine.006/Spine.007/Head
+    m_Weight: 0
+  - m_Path: Dragon/Base/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Spine.006/Spine.007/Head/Jaw
+    m_Weight: 1
+  - m_Path: Dragon/Base/Spine.001/Spine.002/Spine.003/Spine.004/Spine.005/Spine.006/Spine.007/Head/Jaw/Jaw_end
+    m_Weight: 0
+  - m_Path: dragonBody
+    m_Weight: 0

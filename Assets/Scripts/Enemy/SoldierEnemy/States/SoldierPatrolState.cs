@@ -6,16 +6,20 @@ public class SoldierPatrolState : SoldierBaseClass
 {
     public override void EnterState(SoldierStateManager enemy)
     {
-        throw new System.NotImplementedException();
     }
 
     public override void UpdateState(SoldierStateManager enemy)
     {
-        throw new System.NotImplementedException();
+        Collider[] playerCheck = Physics.OverlapSphere(enemy.transform.position, enemy._data.sightRange,  enemy._data.playerLayer);
+        if (playerCheck.Length > 0)
+        {
+            enemy._target = playerCheck[0].transform;
+
+            enemy.SwitchState(enemy.AggroState);
+        }
     }
 
     public override void ExitState(SoldierStateManager enemy)
     {
-        throw new System.NotImplementedException();
     }
 }

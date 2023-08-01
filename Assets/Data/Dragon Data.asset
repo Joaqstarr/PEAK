@@ -12,10 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f57f2c7d285c794098ff82d260d43c3, type: 3}
   m_Name: Dragon Data
   m_EditorClassIdentifier: 
+  health: 200
+  speed: 3.5
+  sightRange: 10
+  damage: 1
+  attackSpeed: 1
+  range: 2
   _radius: 10
   _playerLayer:
     serializedVersion: 2
     m_Bits: 256
   _attackTimer: 3
-  _moveHeadDownTime: 2.5
+  _moveHeadDownTime: 2
   _moveHeadAcrossTime: 3
+  _rotSpeed: 3000
+  _fireSpewChance: 30
+  _shootAgainChance: 50
+  _flameSpewDamage: 3
+  fireballSpeed: 30
+  fireballDamage: 50

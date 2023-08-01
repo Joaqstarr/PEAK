@@ -47,7 +47,7 @@ public class SoldierCoverState : SoldierBaseClass
                     }
                 }
             }
-            Debug.Log(hiddenNodes.Count);
+          //  Debug.Log(hiddenNodes.Count);
 
             if (hiddenNodes.Count > 0)
             {

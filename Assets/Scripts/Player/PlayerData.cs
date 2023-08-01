@@ -7,7 +7,7 @@ public class PlayerData : ScriptableObject
 {
 
     [Header("General Settings")]
-    public float maxHealth;
+    public int maxHealth = 100;
     public float iFrameTime = 0.5f;
     public float playerHeight = 1;
     [Header("Run")]

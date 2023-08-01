@@ -49,6 +49,24 @@
                     "processors": "Clamp(min=-1,max=1)",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "WeaponMenu",
+                    "type": "Button",
+                    "id": "a7955421-63bc-4078-8a56-3878ecc74c46",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold(duration=0.2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AltFire",
+                    "type": "Button",
+                    "id": "a2f5af29-5714-4579-b372-5cfb47974ef6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -315,6 +333,28 @@
                     "action": "Reel",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "4375d4c9-39b2-4ea9-b1c4-f59f4d604d75",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardAndMouse",
+                    "action": "WeaponMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "629e6f15-a608-4e6d-ac1a-5b4a5565bc63",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardAndMouse",
+                    "action": "AltFire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

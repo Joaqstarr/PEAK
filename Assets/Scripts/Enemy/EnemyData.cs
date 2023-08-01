@@ -14,7 +14,7 @@ public class EnemyData : ScriptableObject
     public float sightRange = 10f;
 
     [Header("Attack Settings")]
-    public float damage = 1;
+    public int damage = 1;
     public float attackSpeed = 1;
     public float range = 2;
 }

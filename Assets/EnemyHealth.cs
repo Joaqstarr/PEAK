@@ -20,9 +20,11 @@ public class EnemyHealth : MonoBehaviour
         
     }
 
-    public void Hit(float damage)
+    public void Hit(float damage, bool ragdoll = false)
     {
-        _health -= damage;
+        if (_health <= 0) return;
+
+            _health -= damage;
 
         GetComponentInChildren<Animator>().SetTrigger("hit");
         //Debug.Log(gameObject.name + ", " + _health);

@@ -58,9 +58,9 @@ public class PhysicsGun : MonoBehaviour
 
         if (Physics.Raycast(_camOffset.position, _camOffset.forward, out hit, _data.maximumRange, _grabbable))
         {
-            if (hit.collider.GetComponent<Rigidbody>() != null)
+            if (hit.collider.GetComponent<Rigidbody>() != null && hit.collider.CompareTag("Grabbable"))
             {
-                if (_selected != hit.collider.gameObject)
+                if (_selected != hit.collider.gameObject )
                 {
                     if (_selected != null) AddMat(_selected, null);
                     _selected = hit.collider.gameObject;

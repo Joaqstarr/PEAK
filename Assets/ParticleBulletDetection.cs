@@ -6,11 +6,13 @@ public class ParticleBulletDetection : MonoBehaviour
 {
     private ParticleSystem part;
     private List<ParticleCollisionEvent> collisionEvents;
+    SoldierData _data;
     // Start is called before the first frame update
     void Start()
     {
         part = GetComponent<ParticleSystem>();
         collisionEvents = new List<ParticleCollisionEvent>();
+        _data = transform.root.GetComponent<SoldierStateManager>()._data;
     }
 
     // Update is called once per frame
@@ -23,7 +25,7 @@ public class ParticleBulletDetection : MonoBehaviour
 
         int numCollisionEvents = part.GetCollisionEvents(other, collisionEvents);
         if (other.CompareTag("Player")){
-            Debug.Log(other.name + ": " + collisionEvents[0].velocity);
+            other.GetComponent<PlayerHealth>().Damage(_data.damage, transform.root.position, false);
 
         }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SoldierData")]
 public class SoldierData : EnemyData
 {
+    public LayerMask playerLayer;
     public LayerMask shootLOSMask;
     public int minBurst;
     public int maxBurst;

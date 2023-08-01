@@ -15,9 +15,12 @@ MonoBehaviour:
   health: 100
   speed: 3.5
   sightRange: 10
-  damage: 1
+  damage: 20
   attackSpeed: 0.25
   range: 14.29
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
   shootLOSMask:
     serializedVersion: 2
     m_Bits: 2009

@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - CoverNode
+  - Grabbable
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - Player
   - Enemy
   - CoverNode
-  - 
-  - 
-  - 
+  - Fire
+  - C4
+  - PhysicsObj
   - 
   - 
   - 
