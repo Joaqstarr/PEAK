@@ -27,13 +27,13 @@ public class PlayerHealth : MonoBehaviour
         {
             _health -= damage;
             _iFrames = _data.iFrameTime;
-           // Debug.Log(_health);
+            Debug.Log(_health);
             _impulseAmount[impulseSize].GenerateImpulseWithForce(1);
         }
         if (isTick)
         {
             _health -= damage;
-          //  Debug.Log(_health);
+            Debug.Log(_health);
             _impulseAmount[impulseSize].GenerateImpulseWithForce(1);
         }
     }

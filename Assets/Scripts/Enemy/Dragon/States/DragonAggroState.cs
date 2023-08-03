@@ -44,7 +44,8 @@ public class DragonAggroState : DragonBaseState
         }
         else
         {
-            enemy._rumble.GenerateImpulseWithForce(1);
+            if(!enemy._rumble.IsInvoking())
+                enemy._rumble.GenerateImpulseWithForce(20 * Time.fixedDeltaTime);
         }
         if (_timer <= 0)
         {

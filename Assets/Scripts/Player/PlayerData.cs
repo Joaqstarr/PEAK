@@ -32,5 +32,8 @@ public class PlayerData : ScriptableObject
     public float springAmount = 282;
     public float damper = 70;
     public Vector2 minMaxDist = new Vector2(0, 3);
+    [Header("Respirator")]
+    public float breatheTime = 5f;
+    public int waterDamage = 4;
 
 }

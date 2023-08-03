@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CoverNode
   - Grabbable
+  - Boulder
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Fire
   - C4
   - PhysicsObj
-  - 
+  - Explodable
   - 
   - 
   - 
