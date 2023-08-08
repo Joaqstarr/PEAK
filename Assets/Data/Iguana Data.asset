@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45840f148c56b24439c8c8f86e06e8fd, type: 3}
+  m_Name: Iguana Data
+  m_EditorClassIdentifier: 
+  health: 50
+  speed: 3.5
+  sightRange: 10
+  damage: 50
+  attackSpeed: 1
+  range: 2
+  treeHeight: 5
+  treeDistance: 1.1
+  treeClingDistance: 0.5
+  _climbSpeed: 5
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _glideSpeed: 10
+  _groundedDist: 0.3

@@ -46,20 +46,39 @@ public class PlayerControls : MonoBehaviour
     }
 
     public void Look(InputAction.CallbackContext context)
-    { 
-            Vector2 modifiedInput = new Vector2(context.ReadValue<Vector2>().x * xSens, context.ReadValue<Vector2>().y * ySens);
-            _look = modifiedInput;
+    {
+        if (FadeToBlack._fading)
+        {
+            _look = Vector2.zero;
+            return;
+        }
+
+        Vector2 modifiedInput = new Vector2(context.ReadValue<Vector2>().x * xSens, context.ReadValue<Vector2>().y * ySens);
+        _look = modifiedInput;
 
         
 
     }
     public void Movement(InputAction.CallbackContext context)
     {
+        if (FadeToBlack._fading)
+        {
+            _movement = Vector2.zero;
+            return;
+        }
+
         _movement = context.ReadValue<Vector2>();
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
+        if (FadeToBlack._fading)
+        {
+            _jumpHeld = false;
+            _jump = 0;
+            return;
+
+        }
         if (context.ReadValue<float>() == 1)
         {
             _jump = _data.jumpTimer;
@@ -73,6 +92,13 @@ public class PlayerControls : MonoBehaviour
 
     public void Fire(InputAction.CallbackContext context)
     {
+        if (FadeToBlack._fading)
+        {
+            _fireHeld = false;
+
+            return;
+        }
+
         if (context.ReadValue<float>() == 1)
         {
 
@@ -85,6 +111,13 @@ public class PlayerControls : MonoBehaviour
     }
     public void WeaponWheel(InputAction.CallbackContext context)
     {
+        if (FadeToBlack._fading)
+        {
+            _weaponWheelHeld = false;
+            _radial.Close();
+            return;
+        }
+
         if (context.ReadValue<float>() == 1)
         {
             _radial.Open();
@@ -98,6 +131,13 @@ public class PlayerControls : MonoBehaviour
     }
     public void AltFire(InputAction.CallbackContext context)
     {
+        if (FadeToBlack._fading)
+        {
+            _altFireHeld = false;
+
+            return;
+        }
+
         if (context.ReadValue<float>() == 1)
         {
             _altFireHeld = true;
@@ -109,6 +149,8 @@ public class PlayerControls : MonoBehaviour
     }
     public void Reel(InputAction.CallbackContext context)
     {
+        if (FadeToBlack._fading) return;
+
         _reelValue = context.ReadValue<float>();
 
     }
