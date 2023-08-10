@@ -9,8 +9,9 @@ public class EnemyHealth : MonoBehaviour
     public float _health;
     public UnityEvent OnDeath;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        transform.parent = null;
         _health = _data.health;
     }
 

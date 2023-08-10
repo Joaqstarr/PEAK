@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
     PlayerControls _input;
     PlayerData _data;
     public GunData _gunData;
-
+    public bool _reloading;
     float _shootTimer;
     public int _mag;
 
@@ -18,7 +18,8 @@ public class Gun : MonoBehaviour
     AudioSource _fireAudio;
 
     public LayerMask _hittable;
-
+    [SerializeField]
+    Animator _anim;
     Camera _cam;
     // Start is called before the first frame update
     void Start()
@@ -34,19 +35,29 @@ public class Gun : MonoBehaviour
     void Update()
     {
         _shootTimer -= Time.deltaTime;
+        Vector3 playerVelocity = _input.GetComponent<Rigidbody>().velocity;
+        playerVelocity.y = 0;
+        _anim.SetFloat("Speed", playerVelocity.magnitude);
 
-
-        if (_input._fireHeld && _shootTimer <= 0 && _mag > 0)
+        if (_input._fireHeld && _shootTimer <= 0 && _mag > 0 && !_reloading)
         {
             Shoot();
+        }
+        if (_input._reloadHeld && _shootTimer <= 0 && !_reloading)
+        {
+            Reload();
         }
     }
 
     void Shoot()
     {
+
+        if (_mag <= 0)
+        {
+            return;
+        }
         _mag -= 1;
         _shootTimer = _gunData.fireRate;
-
 
         RaycastHit hit;
 
@@ -66,6 +77,18 @@ public class Gun : MonoBehaviour
         //ART
         _fireParticle.Play();
         _fireAudio.Play();
+        _anim.SetTrigger("Fire");
 
+    }
+    private void Reload()
+    {
+        _reloading = true;
+        _anim.SetTrigger("Reload");
+
+    }
+    public void FinishReload()
+    {
+        _reloading = false;
+        _mag = _gunData.capacity;
     }
 }

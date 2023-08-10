@@ -14,11 +14,12 @@ public class C4 : MonoBehaviour
     GameObject _c4Projectile;
     [SerializeField]
     C4Data _data;
-
+    [SerializeField]
+    Animator _anim;
     PlayerControls _input;
     float _shootTimer = 0;
     float _detonateTimer = 0;
-
+    int _c4Out = 0;
     ObjectPooler _c4ObjectPool;
     // Start is called before the first frame update
     void Start()
@@ -33,12 +34,15 @@ public class C4 : MonoBehaviour
         _shootTimer -= Time.deltaTime;
         _detonateTimer -= Time.deltaTime;
 
-
+        Vector3 playerVelocity = _input.GetComponent<Rigidbody>().velocity;
+        playerVelocity.y = 0;
+        _anim.SetFloat("Speed", playerVelocity.magnitude);
+        _anim.SetInteger("C4Out", _c4Out);
         if (_input._fireHeld && _shootTimer <= 0)
         {
             Throw();
         }
-        if (_input._altFireHeld && _detonateTimer <= 0)
+        if (_input._altFireHeld && _detonateTimer <= 0 && _c4Out >0)
         {
             DetonateActivate();
         }
@@ -55,15 +59,20 @@ public class C4 : MonoBehaviour
     }
     private void OnDetonate()
     {
-
+        _c4Out = 0;
     }
     private void Throw()
     {
         _shootTimer = _data.reloadTime;
+        _anim.SetTrigger("Fire");
 
 
+        StartCoroutine(ThrowWait());
 
-
+    }
+    IEnumerator ThrowWait()
+    {
+        yield return new WaitForSeconds(0.4f);
         GameObject projectile = _c4ObjectPool.GetPooledObject();
         projectile.transform.position = transform.position;
         projectile.transform.rotation = Camera.main.transform.rotation;
@@ -73,12 +82,19 @@ public class C4 : MonoBehaviour
 
         Vector3 addedForce = Camera.main.transform.forward * _data.forwardForce + transform.up * _data.upwardForce;
         projectileRb.AddForce(addedForce, ForceMode.Impulse);
-
+        _c4Out++;
         _placeC4();
     }
     private void DetonateActivate()
     {
         _detonateTimer = 2f;
+
+        _anim.SetTrigger("C4Detonate");
+        StartCoroutine(DetonateWait());
+    }
+    IEnumerator DetonateWait()
+    {
+        yield return new WaitForSeconds(0.3f);
         _explodeC4();
     }
 }

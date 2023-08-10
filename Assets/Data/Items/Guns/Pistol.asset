@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57eaac157aab38145b36b03aaf4b3b41, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 20
   fireRate: 0.33
-  capacity: 426
+  capacity: 10
   reloadTime: 4
   aimInTime: 1
   recoil: 3

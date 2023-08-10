@@ -13,6 +13,7 @@ public class PlayerControls : MonoBehaviour
     public bool _fireHeld = false;
     public bool _weaponWheelHeld = false;
     public bool _altFireHeld = false;
+    public bool _reloadHeld = false;
 
     public float _reelValue = 0;
 
@@ -145,6 +146,25 @@ public class PlayerControls : MonoBehaviour
         else
         {
             _altFireHeld = false;
+        }
+    }
+
+    public void Reload(InputAction.CallbackContext context)
+    {
+        if (FadeToBlack._fading)
+        {
+            _reloadHeld = false;
+
+            return;
+        }
+
+        if (context.ReadValue<float>() == 1)
+        {
+            _reloadHeld = true;
+        }
+        else
+        {
+            _reloadHeld = false;
         }
     }
     public void Reel(InputAction.CallbackContext context)

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: C4Data
   m_EditorClassIdentifier: 
   damage: 20
-  fireRate: 1
+  fireRate: 2
   capacity: 3
-  reloadTime: 1
+  reloadTime: 1.4
   forwardForce: 5
   upwardForce: 1.5
   explodeRadius: 1.43

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4776f83b0dd54b6438f85f99f085930a, type: 3}
+  m_Name: Spider Data
+  m_EditorClassIdentifier: 
+  _hitsToKill: 3
+  _attackTimer: {x: 3, y: 8}
+  _slamDistribution: {x: 12, y: 12}
+  _slamAmount: {x: 15, y: 25}
+  _slamHeight: -1.7
+  _boulderX: {x: -7.305802, y: 48.51712}
+  _boulderZ: {x: -31.8919, y: 11.88195}
+  _boulderSpeed: 4000

@@ -23,6 +23,8 @@ public class UnderwaterDamage : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (GetComponent<PlayerHealth>()._scuba) return;
+
         if (_oxygen <= 0) _health.Damage(_data.waterDamage, transform.position, true);
     }
 }
