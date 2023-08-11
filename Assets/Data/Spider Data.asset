@@ -19,4 +19,7 @@ MonoBehaviour:
   _slamHeight: -1.7
   _boulderX: {x: -7.305802, y: 48.51712}
   _boulderZ: {x: -31.8919, y: 11.88195}
-  _boulderSpeed: 4000
+  _boulderSpeed: 30
+  _rotationSpeed: 1
+  _rotationDeadzone: 5
+  _rotationAnimLerp: 100

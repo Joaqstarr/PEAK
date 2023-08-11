@@ -8,6 +8,7 @@ public class SpiderSlamState : SpiderBaseState
     Vector3[] _spawnPoints;
     public override void EnterState(SpiderStateManager spider)
     {
+        spider._anim.SetBool("Slam", true);
         _data = spider._data;
         _spawnPoints = new Vector3[Random.Range(Mathf.RoundToInt( _data._slamAmount.x),Mathf.RoundToInt( _data._slamAmount.y))];
         int playerPosRock = Random.Range(0, _spawnPoints.Length - 1);
@@ -43,6 +44,8 @@ public class SpiderSlamState : SpiderBaseState
     }
     public override void ExitState(SpiderStateManager spider)
     {
+        spider._anim.SetBool("Slam", false);
+
     }
 
     public override void UpdateState(SpiderStateManager spider)

@@ -18,6 +18,9 @@ public class SpiderIdleState : SpiderBaseState
 
     public override void UpdateState(SpiderStateManager spider)
     {
+
+        spider.RotateAtPlayer(spider);
+
         _timer -= Time.deltaTime;
         if (_timer <= 0)
         {
@@ -35,4 +38,6 @@ public class SpiderIdleState : SpiderBaseState
 
         }
     }
+
+
 }

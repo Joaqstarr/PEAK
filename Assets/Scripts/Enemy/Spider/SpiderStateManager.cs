@@ -20,12 +20,14 @@ public class SpiderStateManager : MonoBehaviour
     public List<BossBoulder> _boulders = new List<BossBoulder>();
     public GameObject _boulderPrefab;
     public Transform[] _grapplePoints;
-
+    public Animator _anim;
+    public GameObject _handCamera { get; private set; }
     // Start is called before the first frame update
     void Start()
     {
+        _handCamera = GameObject.Find("HandCamera");
         _target = GameObject.Find("Player").transform;
-        _currentState = _idleState;
+        _currentState = _hiddenState;
         _currentState.EnterState(this);
     }
 
@@ -41,5 +43,30 @@ public class SpiderStateManager : MonoBehaviour
         _currentState = newState;
         _currentState.EnterState(this);
 
+    }
+
+    public void RotateAtPlayer(SpiderStateManager spider)
+    {
+        Vector3 _targetPos = spider._target.transform.position;
+        _targetPos.y = spider.transform.position.y;
+        if (Vector3.Distance(_targetPos, spider.transform.position) > _data._rotationDeadzone)
+        {
+            Vector3 dir = (_targetPos - spider.transform.position).normalized;
+            Vector3 rotateAmount = Vector3.RotateTowards(spider.transform.forward, dir, _data._rotationSpeed * Time.deltaTime, 1f);
+         //   Debug.Log((spider.transform.forward - dir).normalized.magnitude);
+            float animSpeed = 0;
+            if ((spider.transform.forward - dir).normalized.x < 0) animSpeed = -1f;
+            if ((spider.transform.forward - dir).normalized.x > 0) animSpeed = 1f;
+
+            //if (animSpeed != 0)
+                _anim.SetFloat("Speed", animSpeed);//Mathf.Lerp(_anim.GetFloat("speed"), animSpeed, Time.deltaTime * _data._rotationAnimLerp));
+            spider.transform.rotation = Quaternion.LookRotation(rotateAmount, Vector3.up);
+        }
+    }
+    public void ActivateBoss()
+    {
+        _handCamera.SetActive(false);
+        _anim.SetTrigger("Activate");
+        FadeToBlack._fading = true;
     }
 }

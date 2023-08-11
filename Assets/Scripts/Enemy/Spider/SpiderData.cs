@@ -12,5 +12,10 @@ public class SpiderData : ScriptableObject
     public Vector2 _boulderX = new Vector2(-7.305802f, 48.51712f);
     public Vector2 _boulderZ = new Vector2(-31.8919f, 11.88195f);
     public float _boulderSpeed = 100;
+    public float _rotationSpeed = 15f;
+    public float _rotationDeadzone = 5f;
+    public float _rotationAnimLerp = 1f;
+
+
 
 }

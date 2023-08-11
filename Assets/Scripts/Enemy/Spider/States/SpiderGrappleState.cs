@@ -8,6 +8,7 @@ public class SpiderGrappleState : SpiderBaseState
     SpiderStateManager _spider;
     public override void EnterState(SpiderStateManager spider)
     {
+
         _spider = spider;
         foreach (Transform _grapplePoint in spider._grapplePoints)
         {
@@ -21,14 +22,27 @@ public class SpiderGrappleState : SpiderBaseState
             _grapplePoint.GetComponent<LineCurveRenderer>()._endPoint = grabbedBoulder.transform;
             _grapplePoint.GetComponent<LineCurveRenderer>().enabled = true;
             _grapplePoint.GetComponent<SpringJoint>().connectedBody = grabbedBoulder.GetComponent<Rigidbody>();
-            _grapplePoint.DOLocalMove(Vector3.zero, 6f);
             spider._boulders.Remove(grabbedBoulder);
+            grabbedBoulder.GetComponent<Rigidbody>().isKinematic = true;
+            spider.StartCoroutine(WaitBeforeYank(_grapplePoint));
+
         }
         spider.StartCoroutine(EndGrapple(spider));
     }
+    IEnumerator WaitBeforeYank(Transform yanker)
+    {
+        yield return new WaitForSeconds(3f);
+        yanker.GetComponent<SpringJoint>().connectedBody.isKinematic = false;
+
+        yanker.DOLocalMove(Vector3.zero, 6f);
+
+    }
+    
+
+    
     IEnumerator EndGrapple(SpiderStateManager spider)
     {
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(8.5f);
         spider.SwitchState(spider._throwState);
     }
 
@@ -38,5 +52,7 @@ public class SpiderGrappleState : SpiderBaseState
 
     public override void UpdateState(SpiderStateManager spider)
     {
+        spider.RotateAtPlayer(spider);
+
     }
 }

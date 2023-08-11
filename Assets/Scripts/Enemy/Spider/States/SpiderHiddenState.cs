@@ -10,6 +10,10 @@ public class SpiderHiddenState : SpiderBaseState
 
     public override void ExitState(SpiderStateManager spider)
     {
+        FadeToBlack._fading = false;
+        spider._handCamera.SetActive(true);
+
+
     }
 
     public override void UpdateState(SpiderStateManager spider)

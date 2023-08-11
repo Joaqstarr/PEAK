@@ -20,7 +20,9 @@ public class SpiderThrowState : SpiderBaseState
 
     public override void UpdateState(SpiderStateManager spider)
     {
-        if(_throwCount >= spider._grapplePoints.Length){
+        spider.RotateAtPlayer(spider);
+
+        if (_throwCount >= spider._grapplePoints.Length){
             spider.SwitchState(spider._idleState);
             return;
         }
@@ -39,7 +41,9 @@ public class SpiderThrowState : SpiderBaseState
         _currentGrapple.GetComponent<LineCurveRenderer>().enabled = false;
         Vector3 dir = (_spider._target.transform.position - boulderRB.transform.position).normalized;
         boulderRB.drag = 0;
+        boulderRB.mass = 1;
         boulderRB.useGravity = false;
+        boulderRB.velocity = Vector3.zero;
         boulderRB.AddForce(dir * _spider._data._boulderSpeed, ForceMode.Impulse);
         _throwCount++;
         _throwing = false;
