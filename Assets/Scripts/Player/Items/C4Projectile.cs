@@ -14,16 +14,6 @@ public class C4Projectile : MonoBehaviour
     AudioSource _audio;
     [SerializeField]
     LayerMask _c4hittable;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnEnable()
     {
@@ -83,6 +73,16 @@ public class C4Projectile : MonoBehaviour
             if (_boulder)
             {
                 _boulder.Explode();
+            }
+            BossHitbox _boss = nearbyObject.transform.GetComponent<BossHitbox>();
+            if (_boss)
+            {
+                _boss.DamageTaken();
+            }
+            BossBoulder bossboulder = nearbyObject.transform.GetComponent<BossBoulder>();
+            if (bossboulder)
+            {
+                bossboulder.Explode();
             }
         }
     }

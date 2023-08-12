@@ -12,6 +12,8 @@ public class PlayerHealth : MonoBehaviour
     public bool _grapple = false;
     public bool _c4 = false;
     public bool _scuba = false;
+    public bool _spiderDead = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -35,7 +37,11 @@ public class PlayerHealth : MonoBehaviour
         _c4 = data._c4;
         _scuba = data._scuba;
         transform.position = new Vector3(data._position[0], data._position[1], data._position[2]);
-
+        _spiderDead = data._spiderKilled;
+        if (_spiderDead == true)
+        {
+            GameObject.Find("Boss").GetComponent<SpiderStateManager>().SwitchState(GameObject.Find("Boss").GetComponent<SpiderStateManager>()._deadState);
+        }
     }
 
     private void Update()

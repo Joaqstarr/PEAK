@@ -23,8 +23,12 @@ public class LineCurveRenderer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_endPoint == null)
+        {
+            this.enabled = false;
+            return;
+        }
         var pointList = new List<Vector3>();
-
         for(float ratio = 0;ratio <= 1;ratio += 1/_vertexCount)
         {
             var tangent1 = Vector3.Lerp(_startPoint.position, _midPoint.position, ratio);

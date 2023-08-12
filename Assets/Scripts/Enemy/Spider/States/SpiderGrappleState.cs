@@ -10,12 +10,11 @@ public class SpiderGrappleState : SpiderBaseState
     {
 
         _spider = spider;
+
         foreach (Transform _grapplePoint in spider._grapplePoints)
         {
             if(spider._boulders.Count == 0)break;
             int randomBoulder = Random.Range(0, spider._boulders.Count - 1);
-            Debug.Log(randomBoulder);
-            
             BossBoulder grabbedBoulder = spider._boulders[randomBoulder];
             _grapplePoint.position = grabbedBoulder.transform.position;
             // _grapplePoint.GetComponent<SpringJoint>().maxDistance = Vector3.Distance(spider._grapplePoint.transform.position, grabbedBoulder.transform.position);
@@ -43,6 +42,7 @@ public class SpiderGrappleState : SpiderBaseState
     IEnumerator EndGrapple(SpiderStateManager spider)
     {
         yield return new WaitForSeconds(8.5f);
+        if(spider._currentState == this)
         spider.SwitchState(spider._throwState);
     }
 

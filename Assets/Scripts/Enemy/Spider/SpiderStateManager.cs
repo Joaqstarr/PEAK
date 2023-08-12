@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class SpiderStateManager : MonoBehaviour
 {
-
-    SpiderBaseState _currentState;
+    public int _health;
+    public SpiderBaseState _currentState;
     public SpiderBaseState _hiddenState { get; private set; } = new SpiderHiddenState();
     public SpiderBaseState _idleState { get; private set; } = new SpiderIdleState();
     public SpiderBaseState _grappleState { get; private set; } = new SpiderGrappleState();
     public SpiderBaseState _throwState { get; private set; } = new SpiderThrowState();
     public SpiderBaseState _hitState { get; private set; } = new SpiderHitState();
     public SpiderBaseState _slamState { get; private set; } = new SpiderSlamState();
-    
+    public SpiderBaseState _deadState { get; private set; } = new Spider_dead();
+
+
     public Transform _target { get; private set; }
 
     public SpiderData _data;
@@ -23,10 +25,11 @@ public class SpiderStateManager : MonoBehaviour
     public Animator _anim;
     public GameObject _handCamera { get; private set; }
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _handCamera = GameObject.Find("HandCamera");
         _target = GameObject.Find("Player").transform;
+        _health = _data._hitsToKill;
         _currentState = _hiddenState;
         _currentState.EnterState(this);
     }
@@ -65,8 +68,19 @@ public class SpiderStateManager : MonoBehaviour
     }
     public void ActivateBoss()
     {
+        if(_currentState == _deadState)return;
         _handCamera.SetActive(false);
         _anim.SetTrigger("Activate");
         FadeToBlack._fading = true;
+    }
+    public void TakeDamage()
+    {
+        if (_currentState == _hitState || _currentState == _deadState) return;
+        if (_health <= 0)
+        {
+            SwitchState(_deadState);
+            return;
+        }
+            SwitchState(_hitState);
     }
 }

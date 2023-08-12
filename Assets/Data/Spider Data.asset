@@ -16,7 +16,7 @@ MonoBehaviour:
   _attackTimer: {x: 3, y: 8}
   _slamDistribution: {x: 12, y: 12}
   _slamAmount: {x: 15, y: 25}
-  _slamHeight: -1.7
+  _slamHeight: -2.9
   _boulderX: {x: -7.305802, y: 48.51712}
   _boulderZ: {x: -31.8919, y: 11.88195}
   _boulderSpeed: 30

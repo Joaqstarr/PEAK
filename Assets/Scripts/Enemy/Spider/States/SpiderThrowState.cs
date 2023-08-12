@@ -16,6 +16,8 @@ public class SpiderThrowState : SpiderBaseState
 
     public override void ExitState(SpiderStateManager spider)
     {
+        DropBoulders(spider);
+
     }
 
     public override void UpdateState(SpiderStateManager spider)
@@ -36,7 +38,17 @@ public class SpiderThrowState : SpiderBaseState
         grapple.DOLocalMove(new Vector3(0, -4,0), 1f).onComplete = Launch;
     }
     private void Launch(){
+        if (_spider._currentState != this) return;
         Rigidbody boulderRB = _currentGrapple.GetComponent<SpringJoint>().connectedBody;
+        if(boulderRB == null)
+        {
+            _throwCount++;
+            _throwing = false;
+            return;
+        }
+        boulderRB.GetComponent<BossBoulder>()._damaging = true;
+        boulderRB.GetComponent<BossBoulder>()._throwing = true;
+
         _currentGrapple.GetComponent<SpringJoint>().connectedBody = null;
         _currentGrapple.GetComponent<LineCurveRenderer>().enabled = false;
         Vector3 dir = (_spider._target.transform.position - boulderRB.transform.position).normalized;
@@ -46,6 +58,21 @@ public class SpiderThrowState : SpiderBaseState
         boulderRB.velocity = Vector3.zero;
         boulderRB.AddForce(dir * _spider._data._boulderSpeed, ForceMode.Impulse);
         _throwCount++;
+        _throwing = false;
+    }
+    public void DropBoulders(SpiderStateManager spider)
+    {
+        foreach (Transform grapplePoint in spider._grapplePoints)
+        {
+            grapplePoint.DOComplete();
+            Rigidbody connected = grapplePoint.GetComponent<SpringJoint>().connectedBody;
+            if (connected != null)
+            {
+                grapplePoint.GetComponent<LineCurveRenderer>().enabled = false;
+
+                connected.GetComponent<BossBoulder>().Explode();
+            }
+        }
         _throwing = false;
     }
 }
