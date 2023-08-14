@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4776f83b0dd54b6438f85f99f085930a, type: 3}
   m_Name: Spider Data
   m_EditorClassIdentifier: 
-  _hitsToKill: 3
+  _hitsToKill: 2
   _attackTimer: {x: 3, y: 8}
   _slamDistribution: {x: 12, y: 12}
   _slamAmount: {x: 15, y: 25}

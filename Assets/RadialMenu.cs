@@ -2,8 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class RadialMenu : MonoBehaviour
 {
+    [SerializeField]
+    TMP_Text _text;
+    [SerializeField]
+    Image _image;
     private CanvasGroup _radialGroup;
     [SerializeField]
     private RadialMenuEntry _entryPrefab;
@@ -13,8 +18,10 @@ public class RadialMenu : MonoBehaviour
 
     // Start is called before the first frame update
     ItemEquip _newItem;
+    AudioSource _source;
     void Awake()
     {
+        _source = GetComponent<AudioSource>();
         _radialGroup = GetComponent<CanvasGroup>();
         Entries = new List<RadialMenuEntry>();
     }
@@ -37,6 +44,8 @@ public class RadialMenu : MonoBehaviour
 
     public void Open()
     {
+        _text.text = "";
+
         _radialGroup.alpha = 1;
         _radialGroup.interactable = true;
         _radialGroup.blocksRaycasts = true;
@@ -78,5 +87,9 @@ public class RadialMenu : MonoBehaviour
     {
         _newItem = item;
         //play sound;
+        _source.Play();
+        _text.text = item.gameObject.name;
+
     }
+
 }

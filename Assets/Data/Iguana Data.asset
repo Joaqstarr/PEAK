@@ -18,9 +18,9 @@ MonoBehaviour:
   damage: 50
   attackSpeed: 1
   range: 2
-  treeHeight: 5
+  treeHeight: 3
   treeDistance: 1.1
-  treeClingDistance: 0.5
+  treeClingDistance: 0.8
   _climbSpeed: 5
   _playerLayer:
     serializedVersion: 2

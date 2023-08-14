@@ -18,6 +18,8 @@ public class PhysicsGun : MonoBehaviour
     [SerializeField] SpringJoint _grappleJoint;
     float _storedDrag = 0;
     public bool _grapple = false;
+    [SerializeField]
+    Animator _anim;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +33,12 @@ public class PhysicsGun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckForTargets();
+        Vector3 playerVelocity = _input.GetComponent<Rigidbody>().velocity;
+        playerVelocity.y = 0;
+        _anim.SetFloat("Speed", playerVelocity.magnitude);
 
+        CheckForTargets();
+        _anim.SetBool("Firing", _isFiring);
         if(_input._fireHeld && !_isFiring && _selected != null)
         {
             _isFiring = true;

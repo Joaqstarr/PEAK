@@ -12,7 +12,7 @@ public class ItemPickup : MonoBehaviour
     void Start()
     {
         _radialmenu = GameObject.Find("RadialMenu").GetComponent<RadialMenu>();
-        if (_item.gameObject.name == "Grapple Beam")
+        if (_item.gameObject.name == "Spider Remains")
         {
             if( GameObject.Find("Player").GetComponent<PlayerHealth>()._grapple == true)
             {
@@ -38,7 +38,7 @@ public class ItemPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_item.gameObject.name == "Grapple Beam")
+        if (_item.gameObject.name == "Spider Remains")
             if (other.gameObject.GetComponent<PlayerHealth>()._grapple == true) return;
 
         if (_item.gameObject.name == "Remote Bomb")
@@ -49,7 +49,7 @@ public class ItemPickup : MonoBehaviour
         _radialmenu.AddEntry(_item.gameObject.name, _item);
         PlayerHealth _player = other.gameObject.GetComponent<PlayerHealth>();
 
-        if (_item.gameObject.name == "Grapple Beam")
+        if (_item.gameObject.name == "Spider Remains")
         {
             _player._grapple = true;
 
@@ -60,7 +60,6 @@ public class ItemPickup : MonoBehaviour
             _player._c4 = true;
 
         }
-        SaveSystem.SavePlayer(_player);
         Destroy(gameObject);
     }
 }

@@ -15,8 +15,8 @@ MonoBehaviour:
   health: 100
   speed: 3.5
   sightRange: 10
-  damage: 1
-  attackSpeed: 2.28
+  damage: 30
+  attackSpeed: 1
   range: 2
   patrolRange: 5
   patrolSpeed: 0.8

@@ -23,6 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1503476243261409239}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -30,13 +31,13 @@ Transform:
   m_Children:
   - {fileID: 1393814402281694027}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1503476241727980704
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 1503476243261409238}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d286626666b9ca249b5c1425d3486d88,
@@ -128,8 +129,15 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0c04451081081a6489c353df73309654, type: 2}
+      objectReference: {fileID: 2100000, guid: d43244d4743f15e459ce53c25097d150, type: 2}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: d286626666b9ca249b5c1425d3486d88,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1503476243317291994}
   m_SourcePrefab: {fileID: 100100000, guid: d286626666b9ca249b5c1425d3486d88, type: 3}
 --- !u!4 &1393814402281694027 stripped
 Transform:
@@ -151,9 +159,17 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2766406664912669344}
   m_Material: {fileID: 13400000, guid: 02ff5c9adbf5f6649babdd25321b91e5, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: d286626666b9ca249b5c1425d3486d88, type: 3}

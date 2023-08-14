@@ -28,6 +28,7 @@ public class PlayerHealth : MonoBehaviour
         if(data == null)
         {
             SaveSystem.SavePlayer(this);
+            data = SaveSystem.LoadData();
         }
         _health = data._health;
         OutdootEffects._outdoors = data._outdoors;

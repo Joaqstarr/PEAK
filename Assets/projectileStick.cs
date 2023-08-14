@@ -11,16 +11,17 @@ public class projectileStick : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody>();
 
     }
     
     private void OnEnable()
     {
         _isStuck = false;
+        _rb = GetComponent<Rigidbody>();
 
         _boxCollider.enabled = true;
-        _rb.mass = 1;
+        if(_rb != null)
+             _rb.mass = 1;
 
     }
     private void OnCollisionEnter(Collision collision)

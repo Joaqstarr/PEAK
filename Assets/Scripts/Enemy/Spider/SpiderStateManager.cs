@@ -75,7 +75,7 @@ public class SpiderStateManager : MonoBehaviour
     }
     public void TakeDamage()
     {
-        if (_currentState == _hitState || _currentState == _deadState) return;
+        if (_currentState == _hitState || _currentState == _deadState || _currentState == _hiddenState) return;
         if (_health <= 0)
         {
             SwitchState(_deadState);

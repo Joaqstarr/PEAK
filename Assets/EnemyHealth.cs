@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 public class EnemyHealth : MonoBehaviour
 {
     [SerializeField]
@@ -39,4 +40,11 @@ public class EnemyHealth : MonoBehaviour
         }
 
     }
+    public void ShrinkToDestroy()
+    {
+        transform.DOScale(new Vector3(0.01f,0.01f, 0.01f), 10f).SetEase(Ease.InOutBack);
+        Destroy(gameObject, 7f);
+
+    }
+
 }
