@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.AI;
 public class IguanaWalk : IguanaBaseState
 {
+    float _minTimer = 1f;
     NavMeshAgent _agent;
 
     Animator _anim;
     public override void EnterState(IguanaStateManager _iguana)
     {
+        _minTimer = 1f;
         _anim = _iguana.GetComponentInChildren<Animator>();
         _anim.SetTrigger("Ground");
         _agent = _iguana.GetComponent<NavMeshAgent>();
@@ -28,7 +30,10 @@ public class IguanaWalk : IguanaBaseState
 
     public override void UpdateState(IguanaStateManager _iguana)
     {
+        _minTimer -= Time.deltaTime;
         _anim.SetFloat("Speed", _agent.velocity.magnitude);
+
+        if (_minTimer > 0) return;
         if (_agent.remainingDistance <= _agent.stoppingDistance)
         {
             if (!_agent.hasPath || _agent.velocity.sqrMagnitude == 0f)

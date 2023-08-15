@@ -12,6 +12,7 @@ public class OutdootEffects : MonoBehaviour
     void Start()
     {
         _holder = transform.GetChild(0).gameObject;
+        if(transform.childCount > 1)
         _indoorHolder = transform.GetChild(1).gameObject;
 
     }
@@ -19,7 +20,9 @@ public class OutdootEffects : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _holder.SetActive(_outdoors);
+        if (_indoorHolder != null)
+            _holder.SetActive(_outdoors);
+        if(_indoorHolder != null)
         _indoorHolder.SetActive(!_outdoors);
 
     }

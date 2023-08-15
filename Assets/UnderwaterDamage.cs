@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnderwaterDamage : MonoBehaviour
 {
-    PlayerData _data;
+    public PlayerData _data;
     public float _oxygen;
     PlayerHealth _health;
     // Start is called before the first frame update
@@ -18,7 +18,8 @@ public class UnderwaterDamage : MonoBehaviour
     {
         if(!UnderwaterEffects._underwater)
             _oxygen = _data.breatheTime;
-        _oxygen -= Time.deltaTime;
+        else
+            _oxygen -= Time.deltaTime;
     }
     // Update is called once per frame
     void FixedUpdate()

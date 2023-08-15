@@ -28,7 +28,7 @@ public class ScubaPickup : MonoBehaviour
        
 
 
-        SaveSystem.SavePlayer(_player);
+        //SaveSystem.SavePlayer(_player);
         Destroy(gameObject);
     }
 }

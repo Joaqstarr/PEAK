@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 public class RadialMenuEntry : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]
@@ -10,9 +11,10 @@ public class RadialMenuEntry : MonoBehaviour, IPointerEnterHandler, IPointerExit
     RadialMenu _menu;
 
     public ItemEquip _item;
-
+    RectTransform _size;
     private void Start()
     {
+        _size = GetComponent<RectTransform>();
         _menu = GetComponent<RectTransform>().parent.GetComponent<RadialMenu>();
     }
     public void SetLabel(string labelText)
@@ -28,10 +30,17 @@ public class RadialMenuEntry : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         Debug.Log("poop");
         _menu.SwitchNewItem(_item);
+        transform.DOScale(1.1f, 0.02f).SetEase(Ease.OutElastic);
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-       
+        _size.DOScale(new Vector3(1, 1, 1), 0.02f).SetEase(Ease.OutBounce);
+
+    }
+    private void OnEnable()
+    {
+        _size.localScale = new Vector3(1, 1, 1);
     }
 }

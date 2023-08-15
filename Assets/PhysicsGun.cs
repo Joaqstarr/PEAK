@@ -20,6 +20,8 @@ public class PhysicsGun : MonoBehaviour
     public bool _grapple = false;
     [SerializeField]
     Animator _anim;
+    [SerializeField]
+    Material _transparentMat;
     // Start is called before the first frame update
     void Start()
     {
@@ -68,7 +70,7 @@ public class PhysicsGun : MonoBehaviour
             {
                 if (_selected != hit.collider.gameObject )
                 {
-                    if (_selected != null) AddMat(_selected, null);
+                    if (_selected != null) AddMat(_selected, _transparentMat);
                     _selected = hit.collider.gameObject;
 
                     AddMat(_selected, _outlineMat);
@@ -83,7 +85,7 @@ public class PhysicsGun : MonoBehaviour
                 {
 
 
-                    AddMat(_selected, null);
+                    AddMat(_selected, _transparentMat);
 
                 }
                 _selected = null;
@@ -93,7 +95,7 @@ public class PhysicsGun : MonoBehaviour
         {
             if (_selected != null)
             {
-                AddMat(_selected, null);
+                AddMat(_selected, _transparentMat);
 
             }
             _selected = null;
@@ -101,10 +103,12 @@ public class PhysicsGun : MonoBehaviour
     }
     void AddMat(GameObject targ, Material mat)
     {
-        Material[] mats = targ.GetComponent<MeshRenderer>().materials;
+        MeshRenderer renderer = targ.GetComponent<MeshRenderer>();
+        if (renderer == null) renderer = targ.GetComponentInChildren<MeshRenderer>();
+        Material[] mats = renderer.materials;
         mats[mats.Length - 1] = mat;
 
-        targ.GetComponent<MeshRenderer>().materials = mats;
+        renderer.materials = mats;
 
 
     }
@@ -157,7 +161,7 @@ public class PhysicsGun : MonoBehaviour
         _joint.connectedBody = null;
         _line.enabled = false;
 
-        AddMat(targ, null);
+        AddMat(targ, _transparentMat);
         targ.GetComponent<Rigidbody>().drag = _storedDrag;
         if (_grappleJoint != null)
         {

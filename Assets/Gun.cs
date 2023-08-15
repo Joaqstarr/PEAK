@@ -20,6 +20,7 @@ public class Gun : MonoBehaviour
     public LayerMask _hittable;
     [SerializeField]
     Animator _anim;
+    [SerializeField]
     Camera _cam;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,6 @@ public class Gun : MonoBehaviour
         _input = GameObject.Find("Player").GetComponent<PlayerControls>();
         _data = _input._data;
 
-        _cam = Camera.main;
         _mag = _gunData.capacity;
     }
 
@@ -60,7 +60,6 @@ public class Gun : MonoBehaviour
         _shootTimer = _gunData.fireRate;
 
         RaycastHit hit;
-
         if(Physics.Raycast(_cam.transform.position, _cam.transform.forward, out hit, _gunData.range, _hittable))
         {
            // Debug.Log("gun hit original: "+ hit.transform.gameObject.name);
@@ -91,4 +90,9 @@ public class Gun : MonoBehaviour
         _reloading = false;
         _mag = _gunData.capacity;
     }
+    private void OnEnable()
+    {
+        _reloading = false;
+    }
+
 }

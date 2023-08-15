@@ -30,5 +30,5 @@ MonoBehaviour:
   springAmount: 282
   damper: 70
   minMaxDist: {x: 0, y: 3}
-  breatheTime: 5
+  breatheTime: 4
   waterDamage: 1

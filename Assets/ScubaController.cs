@@ -15,7 +15,10 @@ public class ScubaController : MonoBehaviour
     void Update()
     {
         _anim.SetBool("Underwater", UnderwaterEffects._underwater);
-        _anim.SetBool("HasScuba", transform.root.GetComponent<PlayerHealth>()._scuba);
+        PlayerHealth _health = transform.root.GetComponent<PlayerHealth>();
+        if (_health == null)
+            _health = transform.root.GetComponentInChildren<PlayerHealth>();
+        _anim.SetBool("HasScuba", _health._scuba);
 
     }
 

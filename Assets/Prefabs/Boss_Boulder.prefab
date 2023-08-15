@@ -62,6 +62,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f723c3f6b71fb3345bd23387ce5ef62f, type: 2}
+  - {fileID: 2100000, guid: feaa7d807293e2e45a74be0b32d1261c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,7 +99,7 @@ GameObject:
   - component: {fileID: -1323774513994937462}
   m_Layer: 14
   m_Name: Boss_Boulder
-  m_TagString: Untagged
+  m_TagString: Grabbable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -134,6 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 50
   _damaging: 1
+  _throwing: 0
 --- !u!54 &-9030756693266115656
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -68,7 +68,7 @@ public class SpiderStateManager : MonoBehaviour
     }
     public void ActivateBoss()
     {
-        if(_currentState == _deadState)return;
+        if(_currentState != _hiddenState)return;
         _handCamera.SetActive(false);
         _anim.SetTrigger("Activate");
         FadeToBlack._fading = true;
