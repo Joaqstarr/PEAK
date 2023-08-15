@@ -7,14 +7,19 @@ public class DoorTeleport : MonoBehaviour
     FadeToBlack _fade;
     [SerializeField]
     bool _leadsIndoors = true;
+    [SerializeField]
+    bool _leadsToBoss = false;
+    MusicManager _musicManager;
     private void Start()
     {
         _fade = GameObject.Find("Fadetoblack").GetComponent<FadeToBlack>();
+        _musicManager = GameObject.Find("MusicManager").GetComponent<MusicManager>();
     }
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            _musicManager.TransitionMusic(!_leadsIndoors, _leadsToBoss);
             other.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.zero, ForceMode.VelocityChange);
             _fade.Fade(2f);
             StartCoroutine(Teleport(other));

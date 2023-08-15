@@ -12,6 +12,8 @@ public class SoldierAggroState : SoldierBaseClass
     public override void EnterState(SoldierStateManager enemy)
     {
         _agent = enemy.GetComponent<NavMeshAgent>();
+        if (enemy._target == null)
+            enemy._target = GameObject.Find("Player").transform;
         _target = enemy._target;
         _data = enemy._data;
         _animator = enemy._animator;

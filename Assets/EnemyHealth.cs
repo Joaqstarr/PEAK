@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour
     EnemyData _data;
     public float _health;
     public UnityEvent OnDeath;
+    public UnityEvent OnHit;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,9 +27,9 @@ public class EnemyHealth : MonoBehaviour
     public void Hit(float damage, bool ragdoll = false)
     {
         if (_health <= 0) return;
-
+        
             _health -= damage;
-
+        OnHit.Invoke();
         GetComponentInChildren<Animator>().SetTrigger("hit");
         //Debug.Log(gameObject.name + ", " + _health);
         if(_health <= 0)

@@ -497,6 +497,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2191506761452955866, guid: db7043905c2329a4d8862a90891884fc,
+        type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 9000
+      objectReference: {fileID: 0}
     - target: {fileID: 6568812655714792073, guid: db7043905c2329a4d8862a90891884fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1151,7 +1156,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.1
-  far clip plane: 1000
+  far clip plane: 9000
   field of view: 60
   orthographic: 0
   orthographic size: 5

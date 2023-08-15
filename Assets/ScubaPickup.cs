@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class ScubaPickup : MonoBehaviour
 {
+    [SerializeField]
+    ItemEquip _item;
+    [SerializeField]
+    string _description;
     // Start is called before the first frame update
     void Start()
     {
-        if (GameObject.Find("Player").GetComponent<PlayerHealth>()._grapple == true)
+        if (GameObject.Find("Player").GetComponent<PlayerHealth>()._scuba == true)
             Destroy(gameObject);
 
     }
@@ -25,7 +29,8 @@ public class ScubaPickup : MonoBehaviour
 
         if (_player._scuba == true) return;
         _player._scuba = true;
-       
+
+        GameObject.Find("ItemGet").GetComponent<ItemGetUi>().NewItemNotify(_item, _description);
 
 
         //SaveSystem.SavePlayer(_player);

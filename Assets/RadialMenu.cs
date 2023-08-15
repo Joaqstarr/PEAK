@@ -40,6 +40,7 @@ public class RadialMenu : MonoBehaviour
         entry.SetItem(item);
         Entries.Add(entry);
         entry.SetLabel(label);
+        entry.SetIcon(item._icon);
     }
 
     public void Open()

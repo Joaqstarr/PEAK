@@ -50,4 +50,12 @@ public class AIStateManager : MonoBehaviour
     {
         SwitchState(RagdollState);
     }
+    public void Aggro()
+    {
+        if (_currentState == PatrolState)
+        {
+            SwitchState(AggroState);
+
+        }
+    }
 }

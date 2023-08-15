@@ -26,7 +26,7 @@ public class ElevatorScript : MonoBehaviour
     private void EndElevator()
     {
         FadeToBlack._fading = false;
-        transform.GetChild(0).parent = null;
+        GameObject.Find("Player").transform.parent = null;
 
     }
 }

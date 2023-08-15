@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using UnityEngine.UI;
 public class RadialMenuEntry : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]
@@ -12,6 +13,8 @@ public class RadialMenuEntry : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public ItemEquip _item;
     RectTransform _size;
+    [SerializeField]
+    Image _icon;
     private void Start()
     {
         _size = GetComponent<RectTransform>();
@@ -24,6 +27,10 @@ public class RadialMenuEntry : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void SetItem(ItemEquip item)
     {
         _item = item;
+    }
+    public void SetIcon(Sprite icon)
+    {
+        _icon.sprite = icon;
     }
 
     public void OnPointerEnter(PointerEventData eventData)

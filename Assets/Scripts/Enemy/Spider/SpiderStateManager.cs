@@ -42,7 +42,8 @@ public class SpiderStateManager : MonoBehaviour
     }
     public void SwitchState(SpiderBaseState newState)
     {
-        _currentState.ExitState(this);
+        if(_currentState != null)
+            _currentState.ExitState(this);
         _currentState = newState;
         _currentState.EnterState(this);
 

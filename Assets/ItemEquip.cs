@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemEquip : MonoBehaviour
 {
+    
+    public Sprite _icon;
     RadialMenu _radialmenu;
     [SerializeField]
     bool firstEquipped = false;
@@ -21,9 +23,5 @@ public class ItemEquip : MonoBehaviour
         //      gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

@@ -8,6 +8,9 @@ public class ItemPickup : MonoBehaviour
     RadialMenu _radialmenu;
     [SerializeField]
     ItemEquip _item;
+
+    [SerializeField]
+    string _description;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +63,7 @@ public class ItemPickup : MonoBehaviour
             _player._c4 = true;
 
         }
+        GameObject.Find("ItemGet").GetComponent<ItemGetUi>().NewItemNotify(_item, _description);
         Destroy(gameObject);
     }
 }

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   speed: 3.5
-  sightRange: 10
-  damage: 20
+  sightRange: 20
+  damage: 40
   attackSpeed: 0.25
   range: 14.29
   playerLayer:

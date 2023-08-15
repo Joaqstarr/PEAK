@@ -16,7 +16,10 @@ public class Gun : MonoBehaviour
     ParticleSystem _fireParticle;
     [SerializeField]
     AudioSource _fireAudio;
-
+    [SerializeField]
+    AudioSource _reloadAudio;
+    [SerializeField]
+    AudioSource _emptyAudio;
     public LayerMask _hittable;
     [SerializeField]
     Animator _anim;
@@ -39,7 +42,7 @@ public class Gun : MonoBehaviour
         playerVelocity.y = 0;
         _anim.SetFloat("Speed", playerVelocity.magnitude);
 
-        if (_input._fireHeld && _shootTimer <= 0 && _mag > 0 && !_reloading)
+        if (_input._fireHeld && _shootTimer <= 0  && !_reloading)
         {
             Shoot();
         }
@@ -54,6 +57,7 @@ public class Gun : MonoBehaviour
 
         if (_mag <= 0)
         {
+            _emptyAudio.Play();
             return;
         }
         _mag -= 1;
@@ -83,6 +87,7 @@ public class Gun : MonoBehaviour
     {
         _reloading = true;
         _anim.SetTrigger("Reload");
+        _reloadAudio.Play();
 
     }
     public void FinishReload()

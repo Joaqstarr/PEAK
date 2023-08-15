@@ -67,7 +67,7 @@ public class C4Projectile : MonoBehaviour
             PlayerHealth playerHealth = nearbyObject.transform.root.GetComponent<PlayerHealth>();
             if (playerHealth)
             {
-                playerHealth.Damage(Mathf.RoundToInt(_data.damage), transform.position, false);
+                playerHealth.Damage(Mathf.RoundToInt(50f), transform.position, false);
             }
             Boulder _boulder = nearbyObject.transform.GetComponent<Boulder>();
             if (_boulder)

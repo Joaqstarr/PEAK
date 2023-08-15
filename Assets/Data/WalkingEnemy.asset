@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WalkingEnemy
   m_EditorClassIdentifier: 
   health: 100
-  speed: 3.5
+  speed: 5
   sightRange: 10
   damage: 30
   attackSpeed: 1

@@ -13,6 +13,7 @@ public class SaveData
     public bool _scuba;
     public bool _outdoors;
     public bool _spiderKilled;
+    public bool _elevatorCalled;
 
 
     public SaveData(PlayerHealth player)
@@ -30,6 +31,6 @@ public class SaveData
         _c4 = player._c4;
         _scuba = player._scuba;
         _spiderKilled = player._spiderDead;
-
+        _elevatorCalled = player._elevatorCalled;
     }
 }

@@ -114,4 +114,9 @@ public class SoldierStateManager : MonoBehaviour
         //enemy._aimPoint.position = enemy._target.position;
         enemy._aimPoint.localPosition = playerRelativePos;
     }
+    public void Aggro()
+    {
+        if (_currentState == PatrolState)
+            SwitchState(AggroState);
+    }
 }
