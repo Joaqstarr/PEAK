@@ -124,7 +124,6 @@ public class PhysicsGun : MonoBehaviour
 
 
             _grappleJoint = _input.gameObject.AddComponent<SpringJoint>();
-
             _grappleJoint.connectedBody = targ.GetComponent<Rigidbody>();
             _grappleJoint.spring = _data.springAmount;
             _grappleJoint.damper = _data.damper;
@@ -132,6 +131,15 @@ public class PhysicsGun : MonoBehaviour
             _grappleJoint.maxDistance = _data.minMaxDist.y;
             _grappleJoint.enableCollision = true;
             _grappleJoint.autoConfigureConnectedAnchor = false;
+            _grappleJoint.connectedAnchor = Vector3.zero;
+            _grappleJoint.tolerance = 0;
+            _grappleJoint.breakForce = Mathf.Infinity;
+            _grappleJoint.breakTorque = Mathf.Infinity;
+            _grappleJoint.massScale = 1;
+            _grappleJoint.connectedMassScale = 1;
+            _grappleJoint.enablePreprocessing = true;
+
+
 
         }
         else
@@ -175,9 +183,10 @@ public class PhysicsGun : MonoBehaviour
         if (_grapple)
         {
             _joint.anchor = new Vector3(0, 0, Vector3.Distance(transform.position, targ.transform.position));
-            _grappleJoint.maxDistance = Mathf.Clamp(_grappleJoint.maxDistance + (_input._reelValue * _data.scrollSpeed * Time.deltaTime), _data.minimumRange, _data.maximumRange);
+             _grappleJoint.maxDistance = Mathf.Clamp(_grappleJoint.maxDistance + (_input._reelValue * _data.scrollSpeed * Time.deltaTime), _data.minimumRange, _data.maximumRange);
 
-
+            // _grappleJoint.maxDistance = 2f;
+              Debug.Log(_grappleJoint.maxDistance);
 
         }
         else

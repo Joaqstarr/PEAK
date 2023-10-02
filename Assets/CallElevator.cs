@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class CallElevator : MonoBehaviour
 {
+    Notifier _notif;
+
     bool _activated = false;
     [SerializeField]
     ElevatorScript _elevator;
     // Start is called before the first frame update
     void Start()
     {
+        _notif = GameObject.Find("Notifier").GetComponent<Notifier>();
         _activated = false;
     }
 
@@ -25,6 +28,8 @@ public class CallElevator : MonoBehaviour
         other.transform.position = transform.position;
         other.gameObject.GetComponent<PlayerHealth>()._elevatorCalled = true;
         _elevator.StartElevator();
+        _notif.Notify("Called Elevator", 3f);
+
         FadeToBlack._fading = true;
         Time.timeScale = 0;
         StartCoroutine(EndSave());

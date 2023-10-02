@@ -26,6 +26,7 @@ public class MusicManager : MonoBehaviour
         _mixer.SetFloat("ForestMusicVol", -80f);
         _mixer.SetFloat("FacilityMusicVol", -80f);
         _mixer.SetFloat("EmptyBossRoomVol", -80f);
+        _mixer.SetFloat("BossRoomVol", -80);
 
         if (OutdootEffects._outdoors)
         {
@@ -43,6 +44,8 @@ public class MusicManager : MonoBehaviour
     public void TransitionMusic(bool outdoors, bool boss)
     {
         _mixer.DOSetFloat("EmptyBossRoomVol", boss ?_emptyBossRoom : -80, _transitionTime);
+        _mixer.DOSetFloat("BossRoomVol", boss ? 0 : -80, _transitionTime);
+
         _mixer.DOSetFloat("WorldMusicVol", boss ? -80 : _worldVolume, _transitionTime);
 
         _mixer.DOSetFloat("ForestMusicVol", outdoors? _forestVolume : -80f, _transitionTime);

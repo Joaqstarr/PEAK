@@ -24,6 +24,7 @@ public class SpiderStateManager : MonoBehaviour
     public Transform[] _grapplePoints;
     public Animator _anim;
     public GameObject _handCamera { get; private set; }
+    public GameObject _spiderItem;
     // Start is called before the first frame update
     void Awake()
     {

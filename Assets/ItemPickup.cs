@@ -63,6 +63,8 @@ public class ItemPickup : MonoBehaviour
             _player._c4 = true;
 
         }
+        FindAnyObjectByType<EquipManager>().SwitchWeapon(_item);
+
         GameObject.Find("ItemGet").GetComponent<ItemGetUi>().NewItemNotify(_item, _description);
         Destroy(gameObject);
     }

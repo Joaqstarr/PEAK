@@ -6,9 +6,12 @@ public class SaveCapsule : MonoBehaviour
 {
     private float _timer = 0;
     AudioSource _audio;
+    Notifier _notif;
+
     // Start is called before the first frame update
     void Start()
     {
+        _notif = GameObject.Find("Notifier").GetComponent<Notifier>();
         _timer = 3f;
         _audio = GetComponent<AudioSource>();
     }
@@ -27,6 +30,7 @@ public class SaveCapsule : MonoBehaviour
         SaveSystem.SavePlayer(other.GetComponent<PlayerHealth>());
         _timer = 3f;
         _audio.Play();
+        _notif.Notify("Game Saved", 2f);
         FadeToBlack._fading = true;
         Time.timeScale = 0;
         StartCoroutine(EndSave());

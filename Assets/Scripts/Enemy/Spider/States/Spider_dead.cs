@@ -13,6 +13,9 @@ public class Spider_dead : SpiderBaseState
         GameObject.Find("BossTrigger").SetActive(false);
         GameObject.Find("MusicManager").GetComponent<MusicManager>().EndBossMusic();
 
+        if(spider._spiderItem != null)
+            spider._spiderItem.SetActive(true);
+
     }
 
     public override void ExitState(SpiderStateManager spider)

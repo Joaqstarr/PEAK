@@ -76,6 +76,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "92c26fa0-e872-4409-a689-0a8950425c72",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -373,6 +382,17 @@
                     "processors": "",
                     "groups": "KeyboardAndMouse",
                     "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "604d77e3-16b0-43cb-aa66-d6450869b5af",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardAndMouse",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

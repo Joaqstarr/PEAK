@@ -45,7 +45,6 @@ public class RadialMenu : MonoBehaviour
 
     public void Open()
     {
-        _text.text = "";
 
         _radialGroup.alpha = 1;
         _radialGroup.interactable = true;
@@ -87,6 +86,9 @@ public class RadialMenu : MonoBehaviour
     public void SwitchNewItem(ItemEquip item)
     {
         _newItem = item;
+
+        _image.sprite = item._icon;
+
         //play sound;
         _source.Play();
         _text.text = item.gameObject.name;

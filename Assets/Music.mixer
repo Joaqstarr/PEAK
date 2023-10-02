@@ -70,6 +70,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: 6ef26edb206a83c43bc8a9c830dde05f
+    name: BossRoomVol
   - guid: efcd06eaeec96784681637b25b985f04
     name: BossMusicVol
   - guid: 6f6ce30868193b84fabb97d5cfc0b20d
@@ -78,6 +80,8 @@ AudioMixerController:
     name: FacilityMusicVol
   - guid: 0d455b31ecebed04f82ff7fdf9d9289d
     name: ForestMusicVol
+  - guid: b102a6b497eddc945a1f7392afc212f1
+    name: MusicVol
   - guid: d60294eda4f2cbb49a0fb437526a6b7c
     name: WorldMusicVol
   m_AudioMixerGroupViews:

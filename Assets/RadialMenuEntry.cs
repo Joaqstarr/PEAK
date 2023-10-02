@@ -35,7 +35,6 @@ public class RadialMenuEntry : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("poop");
         _menu.SwitchNewItem(_item);
         transform.DOScale(1.1f, 0.02f).SetEase(Ease.OutElastic);
 

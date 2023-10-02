@@ -14,9 +14,12 @@ public class PlayerHealth : MonoBehaviour
     public bool _scuba = false;
     public bool _spiderDead = false;
     public bool _elevatorCalled = false;
+    [SerializeField]
+    bool _loadData = true;
     // Start is called before the first frame update
     void Awake()
     {
+        if (!_loadData) return;
         _data = GetComponent<PlayerControls>()._data;
         _health = _data.maxHealth;
         LoadPlayer();
@@ -70,6 +73,10 @@ public class PlayerHealth : MonoBehaviour
             _health -= damage;
             Debug.Log(_health);
             _impulseAmount[impulseSize].GenerateImpulseWithForce(1);
+        }
+        if(_health <= 0)
+        {
+            GameObject.Find("Death").GetComponent<Death>().KillPlayer();
         }
     }
 }

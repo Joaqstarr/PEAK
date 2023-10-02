@@ -10,6 +10,7 @@ public class DesertPosition : MonoBehaviour
     void Start()
     {
         GameObject.Find("Player").transform.position = _setPos;
+        OutdootEffects._outdoors = false;
     }
 
 }

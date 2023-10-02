@@ -14,6 +14,7 @@ public class PlayerControls : MonoBehaviour
     public bool _weaponWheelHeld = false;
     public bool _altFireHeld = false;
     public bool _reloadHeld = false;
+    public bool _pauseHeld = false;
 
     public float _reelValue = 0;
 
@@ -25,11 +26,13 @@ public class PlayerControls : MonoBehaviour
     public PlayerData _data;
     PlayerInput _inputComp;
     RadialMenu _radial;
+    Pause _pause;
     // Start is called before the first frame update
     void Start()
     {
         _inputComp = GetComponent<PlayerInput>();
         _radial = GameObject.Find("RadialMenu").GetComponent<RadialMenu>();
+        _pause = GameObject.Find("Pause").GetComponent<Pause>();
     }
 
 
@@ -128,6 +131,24 @@ public class PlayerControls : MonoBehaviour
         {
             _radial.Close();
             _weaponWheelHeld = false;
+        }
+    }
+    public void PauseGame(InputAction.CallbackContext context)
+    {
+        if (FadeToBlack._fading)
+        {
+            _pauseHeld = false;
+            return;
+        }
+
+        if (context.ReadValue<float>() == 1)
+        {
+            _pause.TryPause();
+            _pauseHeld = true;
+        }
+        else
+        {
+            _pauseHeld = false;
         }
     }
     public void AltFire(InputAction.CallbackContext context)
